@@ -7,7 +7,7 @@ public class washerController {
 	@RestController
 	public class LoginController {
 
-		@RequestMapping("/hello")
+		@RequestMapping("/hello_carwasher")
 		public String Hello() {
 			return "Hello World 5";
 		}
