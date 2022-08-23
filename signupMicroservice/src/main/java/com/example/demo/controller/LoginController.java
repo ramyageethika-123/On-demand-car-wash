@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 	
-	@RequestMapping("/hello")
+	@RequestMapping("/hello_signup")
 	public String Hello() {
 		return "Hello World 1";
 	}

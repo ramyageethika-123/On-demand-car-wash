@@ -7,7 +7,7 @@ public class paymentConroller {
 	@RestController
 	public class UserController {
 
-		@RequestMapping("/hello")
+		@RequestMapping("/hello_carwasherpayment")
 		public String Hello() {
 			return "Hello World 4";
 		}
