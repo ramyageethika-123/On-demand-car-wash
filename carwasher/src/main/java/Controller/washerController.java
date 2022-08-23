@@ -11,7 +11,5 @@ public class washerController {
 		public String Hello() {
 			return "Hello World 5";
 		}
-
 	}
-
 }
