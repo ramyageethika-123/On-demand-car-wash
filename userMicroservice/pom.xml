@@ -46,14 +46,8 @@
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 		<dependency>
-<<<<<<< HEAD
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-=======
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
->>>>>>> 731ec8e73b9c73239662c0bae7f1a2b3077e8654
 		</dependency>
 	</dependencies>
 
