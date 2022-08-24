@@ -10,10 +10,10 @@ public class User {
 	private int userId;
 	private String name;
 	private String email;
-	private int number;
+	private String number;
 	private String car;
 	
-	public User(int userId, String name, String email, int number, String car) {
+	public User(int userId, String name, String email, String number, String car) {
 		super();
 		this.userId = userId;
 		this.name = name;
@@ -34,10 +34,10 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getNumber() {
+	public String getNumber() {
 		return number;
 	}
-	public void setNumber(int number) {
+	public void setNumber(String number) {
 		this.number = number;
 	}
 	public String getCar() {
