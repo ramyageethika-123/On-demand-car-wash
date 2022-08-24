@@ -16,4 +16,10 @@ public interface Admin_Repository extends JpaRepository<Admin, Long>{
 	
 	List<Admin> findByKeyword(@Param ("keyword") String keyword);
 
+	Admin save(Washer washer);
+
+	Admin findByWasherid(int washerid);
+
+	void deleteById(int washerid);
+
 }
