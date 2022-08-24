@@ -1,43 +1,39 @@
 package com.example.demo.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
+
 import javax.persistence.Id;
-import javax.persistence.Table;
+
 
 @Entity
-@Table(name= "Admin" , schema="targetSchemaName")
+
 public class Admin {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	
-	@Column(name = "name")
+	private int adminid;
 	private String name;
-	
-	@Column(name = "email")
 	private String email;
 
 	
 	
-	public Admin (String name, String email) {
+	public Admin (int adminid, String name, String email) {
+		this.adminid=adminid;
 		this.name =name;
 		this.email=email;
 	}
 
 
 
-	public Long getId() {
-		return id;
+	public int getId() {
+		return adminid;
 	}
 
 
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(int adminid) {
+		this.adminid = adminid;
 	}
 
 
@@ -64,4 +60,5 @@ public class Admin {
 		this.email = email;
 	}
 	
+
 }
