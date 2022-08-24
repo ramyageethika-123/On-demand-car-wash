@@ -35,9 +35,8 @@ public class LoginController {
 	  }
 	  
 	  @GetMapping("/deletelogin/{id}")
-	  public String deleteLogin(@PathVariable Long id) {
-		  loginService.deleteLogintById(id);
-			return "Account Deleted";
+	  public String deleteLogin(@PathVariable("id") int id) {
+		  return loginService.deleteLoginById(id);
 	  }
 
 }

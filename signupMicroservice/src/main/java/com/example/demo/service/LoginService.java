@@ -26,8 +26,8 @@ public class LoginService {
 		return loginRepository.save(login);
 	}
 	
-	public void deleteLogintById(Long id) {
+	public String deleteLoginById(int id) {
 		loginRepository.deleteById(id);
-		
+		return "Account deleted";
 	}
 }

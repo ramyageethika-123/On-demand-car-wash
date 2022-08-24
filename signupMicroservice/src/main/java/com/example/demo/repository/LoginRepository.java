@@ -7,7 +7,7 @@ import com.example.demo.model.Login;
 import com.example.demo.model.User;
 
 @Repository
-public interface LoginRepository extends JpaRepository<Login,Long> {
+public interface LoginRepository extends JpaRepository<Login,Integer> {
 	
 	//User findByUserId(int userId);
 	Login findById(int id);
