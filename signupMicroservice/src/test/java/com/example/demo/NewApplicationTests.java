@@ -43,7 +43,7 @@ class NewApplicationTests {
 	}
 	
 	@Test
-	void testUpdateLogin() {
+	void testUpdateLoginPass() {
 		Login login =  new Login(1,"dhh@gmail.com","edbeu");
 		loginRepository.save(login);
 		login.setPass("dwkk12");
@@ -51,6 +51,19 @@ class NewApplicationTests {
 		
 		assertEquals("dwkk12", login.getPass());
 	}
+	/*
+	 * @Test void testUpdateLoginId() { Login login = new
+	 * Login(1,"dhh@gmail.com","edbeu"); loginRepository.save(login);
+	 * login.setId(2); loginRepository.save(login);
+	 * 
+	 * assertEquals(2, login.getId()); }
+	 * 
+	 * @Test void testUpdateEmail() { Login login = new
+	 * Login(1,"dhh@gmail.com","edbeu"); loginRepository.save(login);
+	 * login.setEmail("abc@gmail.com"); loginRepository.save(login);
+	 * 
+	 * assertEquals("abc@gmail.com", login.getEmail()); }
+	 */
 	
 	
 	  @Test void testdeleteUserById() { 
