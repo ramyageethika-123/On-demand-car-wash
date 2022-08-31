@@ -9,57 +9,66 @@ import javax.persistence.Id;
 public class User {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
-	private int userId;
-	private String name;
-	private String email;
-	private String number;
-	private String car;
+	private int carId;
+	private String carModel;
+	private String carColor;
+	private String carPlateNo;
+	private int year;
 	
 	public User() {
 		
 	}
-	
-	public User(int userId, String name, String email, String number, String car) {
+
+	public User(int carId, String carModel, String carColor, String carPlateNo, int year) {
 		super();
-		this.userId = userId;
-		this.name = name;
-		this.email = email;
-		this.number = number;
-		this.car = car;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getNumber() {
-		return number;
-	}
-	public void setNumber(String number) {
-		this.number = number;
-	}
-	public String getCar() {
-		return car;
-	}
-	public void setCar(String car) {
-		this.car = car;
+		this.carId = carId;
+		this.carModel = carModel;
+		this.carColor = carColor;
+		this.carPlateNo = carPlateNo;
+		this.year = year;
 	}
 
+	
 	public int getUserId() {
-		return userId;
+		return carId;
 	}
 
 	public void setUserId(int userId) {
-		this.userId = userId;
+		this.carId = carId;
 	}
+
+	public String getCarModel() {
+		return carModel;
+	}
+
+	public void setCarModel(String carModel) {
+		this.carModel = carModel;
+	}
+
+	public String getCarColor() {
+		return carColor;
+	}
+
+	public void setCarColor(String carColor) {
+		this.carColor = carColor;
+	}
+
+	public String getCarPlateNo() {
+		return carPlateNo;
+	}
+
+	public void setCarPlateNo(String carPlateNo) {
+		this.carPlateNo = carPlateNo;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+	
 	
 	
 

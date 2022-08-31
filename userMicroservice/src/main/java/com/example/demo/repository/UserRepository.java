@@ -5,9 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.demo.model.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface UserRepository extends JpaRepository<User, Integer>{
 	
-	User findByUserId(int userId);
+	User findByCarId(int carId);
+
+	//void deleteById(int carId);
 
 	
 
