@@ -11,8 +11,6 @@ import javax.persistence.*;
 	    @Id
 	    private Long Id;
 
-
-
 	    private String userName;
 	    private String packageName;
 	    private LocalDateTime Date;
