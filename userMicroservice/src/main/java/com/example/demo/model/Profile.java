@@ -5,19 +5,33 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
+@ApiModel(description= "Profile information")
 public class Profile {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
+	@ApiModelProperty(notes= "This is unique Id of user")
 	private int userId;
+	@ApiModelProperty(notes= "This is Full name of the user")
 	private String fullName;
+	@ApiModelProperty(notes= "This is user's phone number")
 	private long phone;
+	@ApiModelProperty(notes= "This is user's email address")
 	private String emailId;
+	@ApiModelProperty(notes= "This is user's username")
 	private String username;
+	@ApiModelProperty(notes= "This is user's password")
 	private String password;
+	@ApiModelProperty(notes= "This is user's address")
 	private String address;
+	@ApiModelProperty(notes= "This is about user")
 	private String about;
+	@ApiModelProperty(notes= "This is user's date of birth")
 	private String dob;
+	@ApiModelProperty(notes= "This is user's gender")
 	private String gender;
 	
 	public Profile() {
