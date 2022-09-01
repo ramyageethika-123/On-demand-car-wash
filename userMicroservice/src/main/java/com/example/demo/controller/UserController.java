@@ -17,7 +17,7 @@ import com.example.demo.service.UserService;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
