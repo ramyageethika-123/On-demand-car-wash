@@ -28,49 +28,56 @@ class NewApplicationTests {
 	@MockBean
 	private LoginRepository loginRepository;
 	
+	
 	@Test
 	void testAddLogin() {
-		Login login =  new Login(1,"dhh@gmail.com","edbeu");
+		Login login = new Login(1, "dhh@gmail.com", "edbeu");
 		Mockito.when(loginRepository.save(login)).thenReturn(login);
 		assertEquals(login, loginService.addLoginDetails(login));
 	}
-	
+
 	@Test
 	void testfindByLoginId() {
-		Login login =  new Login(1,"dhh@gmail.com","edbeu");
+		Login login = new Login(1, "dhh@gmail.com", "edbeu");
 		Mockito.when(loginRepository.findById(1)).thenReturn(login);
 		assertEquals(login, loginService.getLoginById(1));
 	}
-	
+
 	@Test
 	void testUpdateLoginPass() {
-		Login login =  new Login(1,"dhh@gmail.com","edbeu");
+		Login login = new Login(1, "dhh@gmail.com", "edbeu");
 		loginRepository.save(login);
 		login.setPass("dwkk12");
 		loginRepository.save(login);
-		
+
 		assertEquals("dwkk12", login.getPass());
 	}
-	/*
-	 * @Test void testUpdateLoginId() { Login login = new
-	 * Login(1,"dhh@gmail.com","edbeu"); loginRepository.save(login);
-	 * login.setId(2); loginRepository.save(login);
-	 * 
-	 * assertEquals(2, login.getId()); }
-	 * 
-	 * @Test void testUpdateEmail() { Login login = new
-	 * Login(1,"dhh@gmail.com","edbeu"); loginRepository.save(login);
-	 * login.setEmail("abc@gmail.com"); loginRepository.save(login);
-	 * 
-	 * assertEquals("abc@gmail.com", login.getEmail()); }
-	 */
-	
-	
-	  @Test void testdeleteUserById() { 
-		  Login login = new Login(1,"dhh@gmail.com","edbeu");
-		  assertEquals("Account deleted", loginService.deleteLoginById(1)); 
-	  }
-	 
+
+	@Test
+	void testUpdateLoginId() {
+		Login login = new Login(1, "dhh@gmail.com", "edbeu");
+		loginRepository.save(login);
+		login.setId(2);
+		loginRepository.save(login);
+
+		assertEquals(2, login.getId());
+	}
+
+	@Test
+	void testUpdateEmail() {
+		Login login = new Login(1, "dhh@gmail.com", "edbeu");
+		loginRepository.save(login);
+		login.setEmail("abc@gmail.com");
+		loginRepository.save(login);
+
+		assertEquals("abc@gmail.com", login.getEmail());
+	}
+
+	@Test
+	void testdeleteUserById() {
+		Login login = new Login(1, "dhh@gmail.com", "edbeu");
+		assertEquals("Account deleted", loginService.deleteLoginById(1));
+	}
 	 
 
 }

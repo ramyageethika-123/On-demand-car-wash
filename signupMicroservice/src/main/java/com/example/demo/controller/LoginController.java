@@ -1,7 +1,11 @@
 package com.example.demo.controller;
 
+import java.util.Objects;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -20,9 +24,10 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 	
-	@PostMapping("/addlogin")
-	public Login addLogin(@RequestBody Login login) {
-		return loginService.addLoginDetails(login);
+	@PostMapping("/register")
+	public String addLogin(@RequestBody Login login) {
+		Login signin = loginService.addLoginDetails(login);
+		return "Registered";
 	}
 	
 	@GetMapping("/getbyid/{id}") 
@@ -40,5 +45,7 @@ public class LoginController {
 	  public String deleteLogin(@PathVariable("id") int id) {
 		  return loginService.deleteLoginById(id);
 	  }
+
+
 
 }
