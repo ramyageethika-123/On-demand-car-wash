@@ -5,12 +5,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
+@ApiModel(description= "Login Details")
 public class Login {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
+	@ApiModelProperty(notes= "This is unique Id to login")
 	private int id;
+	@ApiModelProperty(notes= "This is email and username for login")
 	private String email;
+	@ApiModelProperty(notes= "This is password for login")
 	private String pass;
 	
 	public Login() {
