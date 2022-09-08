@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 @ApiModel(description= "Details about car")
-public class User {
+public class Car {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
 	@ApiModelProperty(notes= "This is unique Id of car")
@@ -24,11 +24,11 @@ public class User {
 	@ApiModelProperty(notes= "This is year car was bought")
 	private int year;
 	
-	public User() {
+	public Car() {
 		
 	}
 
-	public User(int carId, String carModel, String carColor, String carPlateNo, int year) {
+	public Car(int carId, String carModel, String carColor, String carPlateNo, int year) {
 		super();
 		this.carId = carId;
 		this.carModel = carModel;

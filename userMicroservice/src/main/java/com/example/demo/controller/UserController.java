@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Profile;
-import com.example.demo.model.User;
+import com.example.demo.model.Car;
 import com.example.demo.service.UserService;
 
 import io.swagger.annotations.ApiOperation;
@@ -24,25 +24,25 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping("/addcar")
-	@ApiOperation(value="You can add your car details here", response = User.class)
-	public User addCar(@RequestBody User user) {
+	@ApiOperation(value="You can add your car details here", response = Car.class)
+	public Car addCar(@RequestBody Car user) {
 		return userService.addCar(user);
 	}
 
 	@GetMapping("/getbyid/{carId}")
-	@ApiOperation(value="Find car by id",notes="Provide unique car id", response = User.class)
-	public User getCar(@PathVariable("carId") int carId) {
+	@ApiOperation(value="Find car by id",notes="Provide unique car id", response = Car.class)
+	public Car getCar(@PathVariable("carId") int carId) {
 		return userService.getCarById(carId);
 	}
 
 	@PutMapping("/updatecar")
-	@ApiOperation(value="You can update your car details here", response = User.class)
-	public User updateCar(@RequestBody User user) {
+	@ApiOperation(value="You can update your car details here", response = Car.class)
+	public Car updateCar(@RequestBody Car user) {
 		return userService.updateCar(user);
 	}
 	
 	@DeleteMapping("/deletebyId/{carId}")
-	@ApiOperation(value="You can delete car details by id",notes="Provide unique car id", response = User.class)
+	@ApiOperation(value="You can delete car details by id",notes="Provide unique car id", response = Car.class)
 	public String deleteCarById(@PathVariable("carId") int carId) {
 		return userService.deleteCarById(carId);
 	}

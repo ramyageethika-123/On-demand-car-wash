@@ -3,7 +3,7 @@ package com.example.demo.service;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Profile;
-import com.example.demo.model.User;
+import com.example.demo.model.Car;
 import com.example.demo.repository.ProfileRepository;
 import com.example.demo.repository.UserRepository;
 
@@ -17,15 +17,15 @@ public class UserService {
 	@Autowired
 	private ProfileRepository profileRepository;
 	
-	public User addCar(User user) {
+	public Car addCar(Car user) {
 		return userRepository.save(user);
 		
 	}
-	public User getCarById(int carId) {
+	public Car getCarById(int carId) {
 		return userRepository.findByCarId(carId);
 	}
 	
-	public User updateCar(User user) {
+	public Car updateCar(Car user) {
 		return userRepository.save(user);
 	}
 	

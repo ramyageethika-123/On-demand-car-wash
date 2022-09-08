@@ -29,9 +29,9 @@ public class LoginController {
 	
 	@PostMapping("/register")
 	@ApiOperation(value="You can register user from here", response = Login.class)
-	public String addLogin(@RequestBody Login login) {
-		Login signin = loginService.addLoginDetails(login);
-		return "redirect:/send-mail";
+	public Login addLogin(@RequestBody Login login) {
+		return loginService.addLoginDetails(login);
+		
 	}
 	
 	@GetMapping("/getbyid/{id}") 
