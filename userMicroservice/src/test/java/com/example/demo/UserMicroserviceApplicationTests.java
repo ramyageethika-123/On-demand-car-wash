@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.example.demo.model.Profile;
-import com.example.demo.model.User;
+import com.example.demo.model.Car;
 import com.example.demo.repository.ProfileRepository;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
@@ -32,21 +32,21 @@ class UserMicroserviceApplicationTests {
 	
 	@Test
 	void testAddCar() {
-		User user = new User(1, "Audi", "Blue", "sh1221", 2014);
+		Car user = new Car(1, "Audi", "Blue", "sh1221", 2014);
 		Mockito.when(userRepository.save(user)).thenReturn(user);
 		assertEquals(user, userService.addCar(user));
 	}
 
 	@Test
 	void testfindByCarId() {
-		User user = new User(1, "Audi", "Blue", "sh1221", 2014);
+		Car user = new Car(1, "Audi", "Blue", "sh1221", 2014);
 		Mockito.when(userRepository.findByCarId(1)).thenReturn(user);
 		assertEquals(user, userService.getCarById(1));
 	}
 
 	@Test
 	void testUpdateCar() {
-		User user = new User(1, "Audi", "Blue", "sh1221", 2014);
+		Car user = new Car(1, "Audi", "Blue", "sh1221", 2014);
 		userRepository.save(user);
 		user.setCarColor("Black");
 		userRepository.save(user);
@@ -56,7 +56,7 @@ class UserMicroserviceApplicationTests {
 	  
 	@Test
 	void testdeleteCarById() {
-		User user = new User(1, "Audi", "Blue", "sh1221", 2014);
+		Car user = new Car(1, "Audi", "Blue", "sh1221", 2014);
 		assertEquals("User deleted", userService.deleteCarById(1));
 	}
 	
