@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
+import com.example.demo.model.Receipt;
+import com.example.demo.model.PlaceOrder;
 import com.example.demo.model.Washer;
 import com.example.demo.service.WasherService;
 
@@ -21,6 +24,9 @@ public class WasherController {
 	@Autowired
 	private WasherService washerService;
 
+	@Autowired
+    private RestTemplate restTemplate;
+	
 	@PostMapping("/addprofile")
 	@ApiOperation(value="You can add your profile details here", response = Washer.class)
 	public Washer addProfile(@RequestBody Washer washer) {
@@ -39,5 +45,9 @@ public class WasherController {
 		return washerService.updateProfile(washer);
 	}
 	 
+	@PostMapping("/receipt")
+	public Receipt addReceipt(Receipt receipt) {
+		return washerService.saveReceipt(receipt);
+	}
 
 }

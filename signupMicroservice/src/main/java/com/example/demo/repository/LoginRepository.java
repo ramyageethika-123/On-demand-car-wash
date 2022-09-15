@@ -9,6 +9,8 @@ import com.example.demo.model.Login;
 public interface LoginRepository extends JpaRepository<Login,Integer> {
 	
 	Login findById(int id);
+	
+	Login findByUsername(String username);
 
 	//void deleteById(Long id);
 

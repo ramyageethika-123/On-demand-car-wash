@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Profile;
+import com.example.demo.model.UserProfile;
 import com.example.demo.model.Car;
+import com.example.demo.model.PlaceOrder;
 import com.example.demo.service.UserService;
 
 import io.swagger.annotations.ApiOperation;
@@ -22,6 +25,8 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	
 	
 	@PostMapping("/addcar")
 	@ApiOperation(value="You can add your car details here", response = Car.class)
@@ -35,6 +40,12 @@ public class UserController {
 		return userService.getCarById(carId);
 	}
 
+	@GetMapping("/get-all-cars")
+	@ApiOperation(value="Find all cars", response = Car.class)
+	public List<Car> getAllUsers(){
+		return userService.getAllCars();
+	}
+	
 	@PutMapping("/updatecar")
 	@ApiOperation(value="You can update your car details here", response = Car.class)
 	public Car updateCar(@RequestBody Car user) {
@@ -50,22 +61,47 @@ public class UserController {
 	//Profile
 	
 	@PostMapping("/addprofile")
-	@ApiOperation(value="You can add your profile details here", response = Profile.class)
-	public Profile addProfile(@RequestBody Profile profile) {
+	@ApiOperation(value="You can add your profile details here", response = UserProfile.class)
+	public UserProfile addProfile(@RequestBody UserProfile profile) {
 		return userService.addProfile(profile);
 	}
 	
 	@GetMapping("/getprofilebyid/{userId}")
-	@ApiOperation(value="Find user's profile by id",notes="Provide unique user id", response = Profile.class)
-	public Profile getProfile(@PathVariable("userId") int userId) {
+	@ApiOperation(value="Find user's profile by id",notes="Provide unique user id", response = UserProfile.class)
+	public UserProfile getProfile(@PathVariable("userId") int userId) {
 		return userService.getProfileByIdI(userId);
 	}
 	
 	@PutMapping("/updateprofile")
-	@ApiOperation(value="You can update your profile details here", response = Profile.class)
-	public Profile updateProfile(@RequestBody Profile profile) {
+	@ApiOperation(value="You can update your profile details here", response = UserProfile.class)
+	public UserProfile updateProfile(@RequestBody UserProfile profile) {
 		return userService.updateProfile(profile);
 	}
-	 
+	
+	//Placeorder
+	
+	@PostMapping("/place-order")
+	@ApiOperation(value="You can order from here", response = PlaceOrder.class)
+	public PlaceOrder addOrder(@RequestBody PlaceOrder order) {
+		return userService.saveOrderDetails(order);
+	}
+
+	@GetMapping("/getorderbyid/{orderId}")
+	@ApiOperation(value="Find order by id",notes="Provide unique order id", response = PlaceOrder.class)
+	public PlaceOrder getOrder(@PathVariable("orderId") int orderId) {
+		return userService.getOrderById(orderId);
+	}
+
+	@PutMapping("/updateorder")
+	@ApiOperation(value="You can update your order details here", response = PlaceOrder.class)
+	public PlaceOrder updateorder(@RequestBody PlaceOrder order) {
+		return userService.updateOrder(order);
+	}
+	
+	@DeleteMapping("/cancelbyId/{orderId}")
+	@ApiOperation(value="You can cancel order by id",notes="Provide unique order id", response = PlaceOrder.class)
+	public String cancelOrderById(@PathVariable("orderId") int orderId) {
+		return userService.cancelOrderById(orderId);
+	}
 
 }

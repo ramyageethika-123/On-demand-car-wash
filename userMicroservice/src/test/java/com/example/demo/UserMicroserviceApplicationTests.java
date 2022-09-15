@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import com.example.demo.model.Profile;
+import com.example.demo.model.UserProfile;
 import com.example.demo.model.Car;
 import com.example.demo.repository.ProfileRepository;
 import com.example.demo.repository.UserRepository;
@@ -63,21 +63,21 @@ class UserMicroserviceApplicationTests {
 	
 	@Test
 	void testAddProfile() {
-		Profile profile = new Profile(1, "Bhavya Prakash",837363746,"abc@gmail.com", "bhavya","1234","abc","hdueh","12-22-1223","Female");
+		UserProfile profile = new UserProfile(1, "Bhavya Prakash",837363746,"abc@gmail.com", "bhavya","1234","abc","hdueh","12-22-1223","Female");
 		Mockito.when(profileRepository.save(profile)).thenReturn(profile);
 		assertEquals(profile, userService.addProfile(profile));
 	}
 
 	@Test
 	void testfindByUserId() {
-		Profile profile = new Profile(1, "Bhavya Prakash",837426746,"abc@gmail.com", "bhavya","1234","abc","hdueh","12-22-1223","Female");
+		UserProfile profile = new UserProfile(1, "Bhavya Prakash",837426746,"abc@gmail.com", "bhavya","1234","abc","hdueh","12-22-1223","Female");
 		Mockito.when(profileRepository.findByUserId(1)).thenReturn(profile);
 		assertEquals(profile, userService.getProfileByIdI(1));
 	}
 
 	@Test
 	void testUpdateProfile() {
-		Profile profile = new Profile(1, "Bhavya Prakash",837426746,"abc@gmail.com", "bhavya","1234","abc","hdueh","12-22-1223","Female");
+		UserProfile profile = new UserProfile(1, "Bhavya Prakash",837426746,"abc@gmail.com", "bhavya","1234","abc","hdueh","12-22-1223","Female");
 		profileRepository.save(profile);
 		profile.setAbout("abc");
 		profileRepository.save(profile);

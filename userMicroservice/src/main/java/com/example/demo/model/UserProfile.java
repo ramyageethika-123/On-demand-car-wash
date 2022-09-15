@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 @ApiModel(description= "Profile information")
-public class Profile {
+public class UserProfile {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
 	@ApiModelProperty(notes= "This is unique Id of user")
@@ -34,11 +34,11 @@ public class Profile {
 	@ApiModelProperty(notes= "This is user's gender")
 	private String gender;
 	
-	public Profile() {
+	public UserProfile() {
 		
 	}
 	
-	public Profile(int userId, String fullName, long phone, String emailId, String username, String password, String address,
+	public UserProfile(int userId, String fullName, long phone, String emailId, String username, String password, String address,
 			String about, String dob, String gender) {
 		super();
 		this.userId = userId;

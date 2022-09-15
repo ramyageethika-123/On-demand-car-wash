@@ -27,10 +27,25 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 	
+	@GetMapping("/user")
+	public String User() {
+		return "This is user page";
+	}
+	
+	@GetMapping("/washer")
+	public String Washer() {
+		return "This is washer page";
+	}
+	
+	@GetMapping("/admin")
+	public String Admin() {
+		return "This is Admin page";
+	}
 	@PostMapping("/register")
 	@ApiOperation(value="You can register user from here", response = Login.class)
-	public Login addLogin(@RequestBody Login login) {
-		return loginService.addLoginDetails(login);
+	public String addUser(@RequestBody Login login) {
+		Login login1 = loginService.registerUser(login);
+		return "Success";
 		
 	}
 	
