@@ -46,7 +46,7 @@ public class WasherController {
 	}
 	 
 	@PostMapping("/receipt")
-	public Receipt addReceipt(Receipt receipt) {
+	public Receipt addReceipt(@RequestBody Receipt receipt) {
 		return washerService.saveReceipt(receipt);
 	}
 

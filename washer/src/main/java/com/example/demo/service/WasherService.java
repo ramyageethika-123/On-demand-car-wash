@@ -40,10 +40,13 @@ public class WasherService {
 	}
 	//receipt
 	public Receipt saveReceipt(Receipt receipt) {
-		UserProfile profile =restTemplate.getForObject("http://localhost:8082/user/getprofilebyid/14", UserProfile.class);
-		PlaceOrder order =restTemplate.getForObject("http://localhost:8082/user/getorderbyid/"+receipt.getOrderId(), PlaceOrder.class);
-		Car car= restTemplate.getForObject("http://localhost:8082/user/getbyid/"+receipt.getCarId(), Car.class);
-		receipt.setOrderId(receipt.getOrderId());
+		UserProfile profile =restTemplate.getForObject("http://USER-SERVICE/user/getprofilebyid/14", UserProfile.class);
+		PlaceOrder order =restTemplate.getForObject("http://USER-SERVICE/user/getorderbyid/"+receipt.getOrderId(), PlaceOrder.class);
+		
+		Car car= restTemplate.getForObject("http://USER-SERVICE/user/getbyid/"+receipt.getCarId(), Car.class);
+		
+		
+		receipt.setOrderId(order.getOrderId());
 		receipt.setCarId(car.getCarId());
 		receipt.setEmail(profile.getEmailId());
 		receipt.setOrderId(order.getOrderId());

@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -8,22 +10,24 @@ import javax.persistence.Id;
 import io.swagger.annotations.ApiModel;
 
 @Entity
-@ApiModel(description= "Details about order")
+@ApiModel(description= "Details about car")
 public class PlaceOrder {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
 	private int orderId;
 	private int carId;
+	private String username;
 	private String address;
 	private String washDate;
 	private String service;
 	private String addOn;
-	private String status;
-	
+	@Enumerated(EnumType.STRING)
+	private Status status;
+	private String email;
 	public PlaceOrder() {
 		
 	}
-	public PlaceOrder(int orderId, int carId, String address, String washDate, String service, String addOn, String status) {
+	public PlaceOrder(int orderId, int carId, String address, String washDate, String service, String addOn, Status status, String email,String username) {
 		super();
 		this.orderId = orderId;
 		this.carId = carId;
@@ -32,6 +36,8 @@ public class PlaceOrder {
 		this.service = service;
 		this.addOn = addOn;
 		this.status=status;
+		this.email=email;
+		this.username=username;
 	}
 	public int getOrderId() {
 		return orderId;
@@ -69,11 +75,23 @@ public class PlaceOrder {
 	public void setAddOn(String addOn) {
 		this.addOn = addOn;
 	}
-	public String getStatus() {
+	public Status getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 	
