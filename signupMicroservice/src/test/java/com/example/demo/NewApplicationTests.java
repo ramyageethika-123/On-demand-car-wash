@@ -10,9 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import com.example.demo.model.Login;
-import com.example.demo.repository.LoginRepository;
-import com.example.demo.service.LoginService;
+import com.example.demo.model.User;
+
 
 
 @SpringBootTest
@@ -21,12 +20,6 @@ class NewApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-	
-	@Autowired
-	private LoginService loginService;
-	
-	@MockBean
-	private LoginRepository loginRepository;
 	
 	
 	/*
