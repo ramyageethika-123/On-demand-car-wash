@@ -1,14 +1,13 @@
-package com.example.demo.controller;
+package com.example.demo.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class LoginController {
+public class Controller {
 	
-	@RequestMapping("/hello")
+	@RequestMapping("/hello_order")
 	public String Hello() {
-		return "Hello World 1";
+		return "Hello World 4";
 	}
-
 }
